@@ -33,7 +33,6 @@ k = Controller()  # 设置控制键盘的变量
 
 
 # 以下是检查更新功能函数的代码
-
 def check_update():
     global update_label
     version_ = '0.0.0.0'
