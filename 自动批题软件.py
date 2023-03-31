@@ -31,7 +31,7 @@ k = Controller()  # 设置控制键盘的变量
 
 
 def expand():  # 扩展函数,去github获取文件
-    tk_expand = tkinter.Toplevel()  # 此版本没有此功能，仅创建一个窗口
+    tk_expand = tkinter.Toplevel()  # 此版本没有此功能，仅创建一个窗口，1.x.x.x版本更新扩展
     tk_expand.title('扩展(实验性)')
     tk_expand_label = tkinter.Label(
         tk_expand, text='此版本暂无扩展,请等待1.x.x.x版本发布', font=('等线', 15))
