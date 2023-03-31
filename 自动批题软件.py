@@ -30,6 +30,17 @@ k = Controller()  # 设置控制键盘的变量
 # 2023.3.31 18:42 准备做：扩展功能、更新功能
 
 
+def expand():  # 扩展函数,去github获取文件
+    tk_expand = tkinter.Toplevel()  # 此版本没有此功能，仅创建一个窗口
+    tk_expand.title('扩展(实验性)')
+    tk_expand_label = tkinter.Label(
+        tk_expand, text='此版本暂无扩展,请等待1.x.x.x版本发布', font=('等线', 15))
+    tk_expand_label.grid(row=0, column=0)
+    tk_expand_button = tkinter.ttk.Button(
+        tk_expand, text='关闭', command=tk_expand.destroy)
+    tk_expand_button.grid(row=1, column=0)
+
+
 def get_list():  # 将软件设置从文件读取到列表中
     global f, i, a, f2_t_subframe, l, b, tk, set_list, tk_frame1, tk_frame2, tk_frame3, f1_score1, f1_score2, f2_counter,\
         f2_score_label, f2_t_del, f2_subframe_list, f2_t_label, f2_t_com, f2_t_com_b, f2_t_jp_com, f2_t_jp_com_b,\
@@ -402,15 +413,6 @@ def stop():
 
 def no_closing():  # 定义一个不可关闭的函数
     pass
-
-
-def expand():  # 扩展函数,去github获取文件
-    tk_expand=tkinter.Toplevel()  # 此版本没有此功能，仅创建一个窗口
-    tk_expand.title('扩展(实验性)')
-    tk_expand_label=tkinter.Label(tk_expand,text='此版本暂无扩展,请等待下个版本发布',font=('等线',15))
-    tk_expand_label.grid(row=0,column=0)
-    tk_expand_button=tkinter.ttk.Button(tk_expand,text='关闭',command=tk_expand.destroy)
-    tk_expand_button.grid(row=1,column=0)
 
 
 # 定义变量
