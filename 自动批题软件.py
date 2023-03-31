@@ -33,7 +33,33 @@ k = Controller()  # 设置控制键盘的变量
 
 # 以下是检查更新功能函数的代码
 
-
+def check_update():
+    global update_label
+    version_ = '0.0.0.0'
+    flag_exception = False
+    flag_version_found = False
+    for i in range(0, 9):
+        if flag_version_found == False:
+            for j in range(0, 9):
+                if flag_version_found == False:
+                    for k in range(0, 9):
+                        if flag_version_found == False:
+                            for l in range(0, 9):
+                                if flag_version_found == False:
+                                    while flag_exception == False:
+                                        try:
+                                            # print(requests.get(
+                                            #    url='https://github.com/zzy13335040016/auto-correct-problems/tree/'+'%s.%s.%s.%s').content)
+                                            if not b'This is not the web page you are looking for' in requests.get(url='https://github.com/zzy13335040016/auto-correct-problems/tree/'+'%s.%s.%s.%s' % (i, j, k, l)).content:
+                                                version_ = '.'.join(i, j, k, l)
+                                                flag_exception = True
+                                                flag_version_found = True
+                                        except:
+                                            pass
+    print(version_)
+    with open('version.ini', 'r', encoding='utf-8') as f:
+        update_label['text'] = '更新:\n最新版本:%s\n当前版本:%s' % (version_, f.read())
+    tk.update()
 
 # 定义其他函数
 def expand():  # 扩展函数,去github获取文件
@@ -45,6 +71,7 @@ def expand():  # 扩展函数,去github获取文件
     tk_expand_button = tkinter.ttk.Button(
         tk_expand, text='关闭', command=tk_expand.destroy)
     tk_expand_button.grid(row=1, column=0)
+
 
 def get_list():  # 将软件设置从文件读取到列表中
     global f, i, a, f2_t_subframe, l, b, tk, set_list, tk_frame1, tk_frame2, tk_frame3, f1_score1, f1_score2, f2_counter,\
@@ -466,6 +493,9 @@ help_button.grid(row=0, column=0)
 # "扩展”按钮
 expand_button = tkinter.ttk.Button(func_frame, text='扩展(实验性)', command=expand)
 expand_button.grid(row=1, column=0)
+# 更新可视化
+update_label = tkinter.ttk.Label(func_frame, text='更新:正在同步...')
+update_label.grid(row=2, column=0)
 # frame1
 f1_score1 = tkinter.Label(tk_frame1, text="分数：", font=("等线", 30), fg="red")
 f1_score1.pack()
