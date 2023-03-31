@@ -405,7 +405,12 @@ def no_closing():  # 定义一个不可关闭的函数
 
 
 def expand():  # 扩展函数,去github获取文件
-    pass  # 此版本没有此功能
+    tk_expand=tkinter.Toplevel()  # 此版本没有此功能，仅创建一个窗口
+    tk_expand.title('扩展(实验性)')
+    tk_expand_label=tkinter.Label(tk_expand,text='此版本暂无扩展,请等待下个版本发布',font=('等线',15))
+    tk_expand_label.grid(row=0,column=0)
+    tk_expand_button=tkinter.ttk.Button(tk_expand,text='关闭',command=tk_expand.destroy)
+    tk_expand_button.grid(row=1,column=0)
 
 
 # 定义变量
